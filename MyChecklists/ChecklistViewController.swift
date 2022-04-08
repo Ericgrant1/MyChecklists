@@ -10,10 +10,10 @@ import UIKit
 class ChecklistViewController: UITableViewController  {
     
     var row0checked = false
-    var row1checked = false
-    var row2checked = false
+    var row1checked = true
+    var row2checked = true
     var row3checked = false
-    var row4checked = false
+    var row4checked = true
     
     let row0text = "Walk the dog"
     let row1text = "Brush teeth"
@@ -67,29 +67,19 @@ class ChecklistViewController: UITableViewController  {
         didSelectRowAt indexPath: IndexPath
     ) {
         if let cell = tableView.cellForRow(at: indexPath) {
-            var isChecked = false
             if indexPath.row == 0 {
                 row0checked.toggle()
-                isChecked = row0checked
             } else if indexPath.row == 1 {
                 row1checked.toggle()
-                isChecked = row1checked
             } else if indexPath.row == 2 {
                 row2checked.toggle()
-                isChecked = row2checked
             } else if indexPath.row == 3 {
                 row3checked.toggle()
-                isChecked = row3checked
             } else if indexPath.row == 4 {
                 row4checked.toggle()
-                isChecked = row4checked
             }
             
-            if isChecked {
-                cell.accessoryType = .checkmark
-            } else {
-                cell.accessoryType = .none
-            }
+            configureCheckmarks(for: cell, at: indexPath)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
