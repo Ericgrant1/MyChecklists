@@ -14,16 +14,22 @@ class ChecklistViewController: UITableViewController  {
     var row2item = CheckListItem()
     var row3item = CheckListItem()
     var row4item = CheckListItem()
-    
-//    let row0text = "Walk the dog"
-//    let row1text = "Brush teeth"
-//    let row2text = "Learn iOS development"
-//    let row3text = "Soccer practice"
-//    let row4text = "Eat ice cream"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        row0item.text = "Walk the dog"
+        
+        row1item.text = "Read book"
+        row1item.checked = true
+        
+        row2item.text = "Learn iOS development"
+        row2item.checked = true
+        
+        row3item.text = "Programming practice"
+        
+        row4item.text = "Eat ice cream"
+        row4item.checked = true
     }
     
     // MARK: - Table View Data Source
