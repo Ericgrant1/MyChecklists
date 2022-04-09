@@ -9,11 +9,11 @@ import UIKit
 
 class ChecklistViewController: UITableViewController  {
     
-    var row0checked = false
-    var row1checked = true
-    var row2checked = true
-    var row3checked = false
-    var row4checked = true
+    var row0item = CheckListItem()
+    var row1item = CheckListItem()
+    var row2iyem = CheckListItem()
+    var row3item = CheckListItem()
+    var row4item = CheckListItem()
     
     let row0text = "Walk the dog"
     let row1text = "Brush teeth"
