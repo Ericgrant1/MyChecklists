@@ -48,6 +48,19 @@ class ChecklistViewController: UITableViewController  {
         items.append(item7)
     }
     
+    // MARK: - Actions
+    @IBAction func addItem() {
+        let newRowIndex = items.count
+        
+        let item = CheckListItem()
+        item.text = "I'm a new row"
+        items.append(item)
+        
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indezPaths = [indexPath]
+        tableView.insertRows(at: indezPaths, with: .automatic)
+    }
+    
     // MARK: - Table View Data Source
     override func tableView(
         _ tableView: UITableView,
