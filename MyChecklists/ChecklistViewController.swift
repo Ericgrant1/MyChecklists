@@ -54,11 +54,12 @@ class ChecklistViewController: UITableViewController  {
         
         let item = CheckListItem()
         item.text = "I'm a new row"
+        item.checked = true
         items.append(item)
         
         let indexPath = IndexPath(row: newRowIndex, section: 0)
-        let indezPaths = [indexPath]
-        tableView.insertRows(at: indezPaths, with: .automatic)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
     }
     
     // MARK: - Table View Data Source
@@ -82,6 +83,17 @@ class ChecklistViewController: UITableViewController  {
         configureText(for: cell, with: item)
         configureCheckmarks(for: cell, with: item)
         return cell
+    }
+    
+    override func tableView(
+        _ tableView: UITableView,
+        commit editingStyle: UITableViewCell.EditingStyle,
+        forRowAt indexPath: IndexPath
+    ) {
+        items.remove(at: indexPath.row)
+        
+        let indexPath = [indexPath]
+        tableView.deleteRows(at: indexPath, with: .automatic)
     }
     
     // MARK: - Table View Delegate
