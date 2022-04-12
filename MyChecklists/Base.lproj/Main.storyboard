@@ -77,9 +77,10 @@
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the Item" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F15-lR-Y3y">
                                                     <rect key="frame" x="16" y="4" width="343" height="22.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
                                                         <action selector="done" destination="qM2-XU-aVg" eventType="editingDidEndOnExit" id="CII-er-zdz"/>
+                                                        <outlet property="delegate" destination="qM2-XU-aVg" id="WzM-pe-t9h"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -112,6 +113,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneBarButton" destination="HeI-Ww-nvr" id="PJ6-rH-7S6"/>
                         <outlet property="textField" destination="F15-lR-Y3y" id="xxN-4h-PRD"/>
                     </connections>
                 </tableViewController>

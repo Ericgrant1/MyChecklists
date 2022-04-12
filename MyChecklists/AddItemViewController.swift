@@ -7,9 +7,10 @@
 
 import UIKit
 
-class AddItemViewController: UITableViewController {
+class AddItemViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var doneBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,5 +40,20 @@ class AddItemViewController: UITableViewController {
         willSelectRowAt indexPath: IndexPath
     ) -> IndexPath? {
         return nil
+    }
+    
+    // MARK: - Text Field Delagate
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool {
+        let oldtext = textField.text!
+        let stringRange = Range(range, in: oldtext)!
+        let nextText = oldtext.replacingCharacters(
+            in: stringRange,
+            with: string)
+        doneBarButton.isEnabled = !nextText.isEmpty
+        return true
     }
 }
