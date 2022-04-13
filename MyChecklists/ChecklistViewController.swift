@@ -60,20 +60,6 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         }
     }
     
-    // MARK: - Actions
-    @IBAction func addItem() {
-        let newRowIndex = items.count
-        
-        let item = CheckListItem()
-        item.text = "I'm a new row"
-        item.checked = true
-        items.append(item)
-        
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRows(at: indexPaths, with: .automatic)
-    }
-    
     // MARK: - Table View Data Source
     override func tableView(
         _ tableView: UITableView,
@@ -134,6 +120,13 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         _ controller: AddItemViewController,
         didFinishAdding item: CheckListItem
     ) {
+        let newRowIndex = items.count
+        items.append(item)
+        
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
+        
         navigationController?.popViewController(animated: true)
     }
     
