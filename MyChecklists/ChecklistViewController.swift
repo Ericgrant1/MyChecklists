@@ -49,6 +49,17 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         items.append(item7)
     }
     
+    // MARK: - Navigation
+    override func prepare(
+        for segue: UIStoryboardSegue,
+        sender: Any?
+    ) {
+        if segue.identifier == "AddItem" {
+            let controller = segue.destination as! AddItemViewController
+            controller.delegate = self
+        }
+    }
+    
     // MARK: - Actions
     @IBAction func addItem() {
         let newRowIndex = items.count
