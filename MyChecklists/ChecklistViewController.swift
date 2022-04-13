@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ChecklistViewController: UITableViewController  {
+class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate  {
+    
     var items = [CheckListItem]()
 
     override func viewDidLoad() {
@@ -109,6 +110,20 @@ class ChecklistViewController: UITableViewController  {
             configureCheckmarks(for: cell, with: item)
         }
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: - Add Item ViewController Delegates
+    func addItemViewControllerDidCancel(
+        _ controller: AddItemViewController
+    ) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func addItemViewController(
+        _ controller: AddItemViewController,
+        didFinishAdding item: CheckListItem
+    ) {
+        navigationController?.popViewController(animated: true)
     }
     
     func configureText(
