@@ -32,6 +32,7 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         if let itemToEdit = itemToEdit {
             title = "Edit Item"
             textField.text = itemToEdit.text
+            doneBarButton.isEnabled = true
         }
     }
     
