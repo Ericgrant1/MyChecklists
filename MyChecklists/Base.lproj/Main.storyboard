@@ -47,7 +47,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="qM2-XU-aVg" kind="show" identifier="EditItem " trigger="accessoryAction" id="VP1-yp-cl0"/>
+                                    <segue destination="qM2-XU-aVg" kind="show" identifier="EditItem" trigger="accessoryAction" id="iON-Hg-IQ0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -153,7 +153,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VP1-yp-cl0"/>
+        <segue reference="iON-Hg-IQ0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
