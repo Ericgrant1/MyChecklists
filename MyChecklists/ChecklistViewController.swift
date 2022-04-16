@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate  {
+class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
     
     var items = [CheckListItem]()
 
@@ -47,6 +47,9 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         item7.text = "Watch the Halo"
         item7.checked = true
         items.append(item7)
+        
+        print("Documents folder is \(documentsDirectory())")
+        print("Data file path is \(dataFilePath())")
     }
     
     // MARK: - Navigation
@@ -170,6 +173,17 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         } else {
             label.text = ""
         }
+    }
+    
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(
+            for: .documentDirectory,
+            in: .userDomainMask)
+        return paths[0]
+    }
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("Checklists.plist")
     }
 }
 
