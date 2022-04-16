@@ -1,5 +1,5 @@
 //
-//  AddItemViewController.swift
+//  ItemDetailViewController.swift
 //  MyChecklists
 //
 //  Created by Eric Grant on 11.04.2022.
@@ -7,24 +7,24 @@
 
 import UIKit
 
-protocol AddItemViewControllerDelegate: AnyObject {
-    func addItemViewControllerDidCancel(
-        _ controller: AddItemViewController)
-    func addItemViewController(
-        _ controller: AddItemViewController,
+protocol ItemDetailViewControllerDelegate: AnyObject {
+    func itemDetailViewControllerDidCancel(
+        _ controller: ItemDetailViewController)
+    func itemDetailViewController(
+        _ controller: ItemDetailViewController,
         didFinishAdding item: CheckListItem
     )
-    func addItemViewController(
-        _ controller: AddItemViewController,
+    func itemDetailViewController(
+        _ controller: ItemDetailViewController,
         didFinishEditing item: CheckListItem)
 }
 
-class AddItemViewController: UITableViewController, UITextFieldDelegate {
+class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     
-    weak var delegate: AddItemViewControllerDelegate?
+    weak var delegate: ItemDetailViewControllerDelegate?
     var itemToEdit: CheckListItem?
     
     override func viewDidLoad() {
@@ -47,17 +47,17 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     
     // MARK: - Actions
     @IBAction func cancel() {
-        delegate?.addItemViewControllerDidCancel(self)
+        delegate?.itemDetailViewControllerDidCancel(self)
     }
     
     @IBAction func done() {
         if let item = itemToEdit {
             item.text = textField.text!
-            delegate?.addItemViewController(self, didFinishEditing: item)
+            delegate?.itemDetailViewController(self, didFinishEditing: item)
         } else {
             let item = CheckListItem()
             item.text = textField.text!
-            delegate?.addItemViewController(self, didFinishAdding: item)
+            delegate?.itemDetailViewController(self, didFinishAdding: item)
         }
     }
     
