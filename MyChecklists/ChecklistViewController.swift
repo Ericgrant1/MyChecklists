@@ -103,6 +103,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         
         let indexPath = [indexPath]
         tableView.deleteRows(at: indexPath, with: .automatic)
+        
+        saveChecklistsItems()
     }
     
     // MARK: - Table View Delegate
@@ -118,6 +120,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             configureCheckmarks(for: cell, with: item)
         }
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        saveChecklistsItems()
     }
     
     // MARK: - Add Item ViewController Delegates
@@ -139,6 +143,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         tableView.insertRows(at: indexPaths, with: .automatic)
         
         navigationController?.popViewController(animated: true)
+        
+        saveChecklistsItems()
     }
     
     func itemDetailViewController(
@@ -152,6 +158,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             }
         }
         navigationController?.popViewController(animated: true)
+        
+        saveChecklistsItems()
     }
     
     func configureText(
