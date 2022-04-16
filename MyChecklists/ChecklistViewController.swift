@@ -16,40 +16,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        let item1 = CheckListItem()
-        item1.text = "Walk the dog"
-        items.append(item1)
-        
-        let item2 = CheckListItem()
-        item2.text = "Read book"
-        item2.checked = true
-        items.append(item2)
-        
-        let item3 = CheckListItem()
-        item3.text = "Learn iOS development"
-        item3.checked = true
-        items.append(item3)
-        
-        let item4 = CheckListItem()
-        item4.text = "Programming practice"
-        items.append(item4)
-        
-        let item5 = CheckListItem()
-        item5.text = "Eat ice cream"
-        item5.checked = true
-        items.append(item5)
-        
-        let item6 = CheckListItem()
-        item6.text = "Go to the gym"
-        items.append(item6)
-        
-        let item7 = CheckListItem()
-        item7.text = "Watch the Halo"
-        item7.checked = true
-        items.append(item7)
-        
-        print("Documents folder is \(documentsDirectory())")
-        print("Data file path is \(dataFilePath())")
+        loadChecklistItems()
     }
     
     // MARK: - Navigation
