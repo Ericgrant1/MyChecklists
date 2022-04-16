@@ -138,6 +138,19 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         navigationController?.popViewController(animated: true)
     }
     
+    func addItemViewController(
+        _ controller: AddItemViewController,
+        didFinishEditing item: CheckListItem
+    ) {
+        if let index = items.firstIndex(of: item) {
+            let indexPath = IndexPath(row: index, section: 0)
+            if let cell = tableView.cellForRow(at: indexPath) {
+                configureText(for: cell, with: item)
+            }
+        }
+        navigationController?.popViewController(animated: true)
+    }
+    
     func configureText(
         for cell: UITableViewCell,
         with item: CheckListItem
