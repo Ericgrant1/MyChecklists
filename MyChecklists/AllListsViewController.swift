@@ -29,7 +29,16 @@ class AllListsViewController: UITableViewController {
 
         list = Checklist(name: "To Do")
         lists.append(list)
-
+    }
+    
+    //MARK: - Navigation
+    override func prepare(
+        for segue: UIStoryboardSegue,
+        sender: Any?) {
+            if segue.identifier == "ShowChecklist" {
+                let controller = segue.destination as! ChecklistViewController
+                controller.checkList = sender as? Checklist
+            }
     }
 
     // MARK: - Table view data source
@@ -61,6 +70,9 @@ class AllListsViewController: UITableViewController {
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath
     ) {
-        performSegue(withIdentifier: "ShowChecklist", sender: nil)
+        let checkList = lists[indexPath.row]
+        performSegue(
+            withIdentifier: "ShowChecklist",
+            sender: checkList)
     }
 }

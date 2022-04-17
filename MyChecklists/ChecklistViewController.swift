@@ -8,15 +8,15 @@
 import UIKit
 
 class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
-    
+    var checkList: Checklist!
     var items = [CheckListItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.largeTitleDisplayMode = .never
-        
         loadChecklistItems()
+        title = checkList.name
     }
     
     // MARK: - Navigation
