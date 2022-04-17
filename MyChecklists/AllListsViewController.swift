@@ -19,7 +19,6 @@ class AllListsViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
@@ -40,4 +39,11 @@ class AllListsViewController: UITableViewController {
         return cell
     }
 
+    // MARK: - Table view delegate
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        performSegue(withIdentifier: "ShowChecklist", sender: nil)
+    }
 }
