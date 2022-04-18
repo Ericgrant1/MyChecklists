@@ -91,6 +91,20 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
             sender: checkList)
     }
     
+    override func tableView(
+        _ tableView: UITableView,
+        accessoryButtonTappedForRowWith indexPath: IndexPath
+    ) {
+        let controller = storyboard?.instantiateViewController(
+            withIdentifier: "ListDetailViewController") as! ListDetailViewController
+        controller.delegate = self
+        
+        let checklist = lists[indexPath.row]
+        controller.checklistToEdit = checklist
+        
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
     //MARK: - List Detail View Controller Delegate
     func listDetailViewControllerDidCancel(_ controller: ListDetailViewController) {
         navigationController?.popViewController(animated: true)
