@@ -41,7 +41,7 @@ class AllListsViewController: UITableViewController {
             }
     }
 
-    // MARK: - Table view data source
+    // MARK: - Table View Data Source
     override func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
@@ -65,7 +65,7 @@ class AllListsViewController: UITableViewController {
         return cell
     }
 
-    // MARK: - Table view delegate
+    // MARK: - Table View Delegate
     override func tableView(
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath
