@@ -22,10 +22,15 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Checklists " id="xYr-UH-koX">
                         <barButtonItem key="backBarButtonItem" title="Back" id="p4e-76-xYe"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vWd-Ni-tF4">
+                            <connections>
+                                <segue destination="IHa-s2-RR6" kind="show" identifier="AddChecklist" id="tZ0-bR-3gG"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="tn5-6i-37E" kind="show" identifier="ShowChecklist" id="c6e-6n-zho"/>
-                        <segue destination="IHa-s2-RR6" kind="show" id="AIv-ia-mvo"/>
+                        <segue destination="IHa-s2-RR6" kind="show" identifier="EditChecklist" id="arR-Ja-cfd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBU-U1-QW4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -107,20 +112,20 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ChecklistItem" id="1kW-6m-CBh">
-                                <rect key="frame" x="0.0" y="44.5" width="375" height="44.5"/>
+                                <rect key="frame" x="0.0" y="44.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1kW-6m-CBh" id="DnA-6L-0Ip">
-                                    <rect key="frame" x="0.0" y="0.0" width="322" height="44.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="322" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="√ " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Muv-Dq-bJ1">
-                                            <rect key="frame" x="16" y="8.5" width="19" height="27.5"/>
+                                            <rect key="frame" x="16" y="8.5" width="19" height="27"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWZ-Kp-LeS">
-                                            <rect key="frame" x="43" y="11" width="263" height="22.5"/>
+                                            <rect key="frame" x="43" y="11" width="263" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -244,6 +249,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="iON-Hg-IQ0"/>
+        <segue reference="tZ0-bR-3gG"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

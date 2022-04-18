@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AllListsViewController: UITableViewController {
+class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate {
     
     let cellIdentifier = "ChecklistCell"
     var lists = [Checklist]()
@@ -34,11 +34,15 @@ class AllListsViewController: UITableViewController {
     //MARK: - Navigation
     override func prepare(
         for segue: UIStoryboardSegue,
-        sender: Any?) {
-            if segue.identifier == "ShowChecklist" {
-                let controller = segue.destination as! ChecklistViewController
-                controller.checkList = sender as? Checklist
-            }
+        sender: Any?
+    ) {
+        if segue.identifier == "ShowChecklist" {
+            let controller = segue.destination as! ChecklistViewController
+            controller.checkList = sender as? Checklist
+        } else if segue.identifier == "AddChecklist" {
+            let controller = segue.destination as! ListDetailViewController
+            controller.delegate = self
+        }
     }
 
     // MARK: - Table View Data Source
@@ -74,5 +78,39 @@ class AllListsViewController: UITableViewController {
         performSegue(
             withIdentifier: "ShowChecklist",
             sender: checkList)
+    }
+    
+    //MARK: - List Detail View Controller Delegate
+    func listDetailViewControllerDidCancel(_ controller: ListDetailViewController) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func listDetailViewController(
+        _ controller: ListDetailViewController,
+        didFinishAdding checklist: Checklist
+    ) {
+        let newRowIndex = lists.count
+        lists.append(checklist)
+        
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func listDetailViewController(
+        _ controller: ListDetailViewController,
+        didFinishEditing checklist: Checklist
+    ) {
+        if let index = lists.firstIndex(of: checklist) {
+            let indexPath = IndexPath(row: index, section: 0)
+            if let cell = tableView.cellForRow(at: indexPath) {
+                var content = cell.defaultContentConfiguration()
+                content.text = checklist.name
+                cell.contentConfiguration = content
+            }
+        }
+        navigationController?.popViewController(animated: true)
     }
 }
