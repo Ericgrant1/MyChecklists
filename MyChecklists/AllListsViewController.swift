@@ -68,6 +68,17 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         return cell
     }
+    
+    override func tableView(
+        _ tableView: UITableView,
+        commit editingStyle: UITableViewCell.EditingStyle,
+        forRowAt indexPath: IndexPath
+    ) {
+        lists.remove(at: indexPath.row)
+        
+        let indexPaths = [indexPath]
+        tableView.deleteRows(at: indexPaths, with: .automatic)
+    }
 
     // MARK: - Table View Delegate
     override func tableView(
