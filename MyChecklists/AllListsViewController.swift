@@ -73,6 +73,10 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath
     ) {
+        UserDefaults.standard.set(
+            indexPath.row,
+            forKey: "ChecklistIndex")
+        
         let checkList = dataModel.lists[indexPath.row]
         performSegue(
             withIdentifier: "ShowChecklist",
