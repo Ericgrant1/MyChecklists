@@ -49,6 +49,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5279DBDD2810097F00B6B1D3 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				52F76CD2280C7D9A0015F72A /* Checklist.swift */,
+				52AEE5312800AC5200EC7321 /* ChecklistItem.swift */,
+				52AE6F8A280F349700BD149A /* DataModel.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		5279DBDE281009D600B6B1D3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				52F76CD0280C5E160015F72A /* AllListsViewController.swift */,
+				52E48EC527FF5B2E00ED5015 /* ChecklistViewController.swift */,
+				52FBD58D28046C1C009157D5 /* ItemDetailViewController.swift */,
+				5271C528280D8413009E3539 /* ListDetailViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		5279DBDF28100A7000B6B1D3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				52E48ECA27FF5B3000ED5015 /* Assets.xcassets */,
+				52E48ECC27FF5B3000ED5015 /* LaunchScreen.storyboard */,
+				52E48EC727FF5B2E00ED5015 /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		52E48EB527FF5B2E00ED5015 = {
 			isa = PBXGroup;
 			children = (
@@ -68,19 +99,12 @@
 		52E48EC027FF5B2E00ED5015 /* MyChecklists */ = {
 			isa = PBXGroup;
 			children = (
+				5279DBDD2810097F00B6B1D3 /* Data Models */,
+				5279DBDE281009D600B6B1D3 /* View Controllers */,
+				5279DBDF28100A7000B6B1D3 /* Resources */,
 				52E48EC127FF5B2E00ED5015 /* AppDelegate.swift */,
-				52E48EC327FF5B2E00ED5015 /* SceneDelegate.swift */,
-				52E48EC527FF5B2E00ED5015 /* ChecklistViewController.swift */,
-				52AEE5312800AC5200EC7321 /* ChecklistItem.swift */,
-				52FBD58D28046C1C009157D5 /* ItemDetailViewController.swift */,
-				52F76CD0280C5E160015F72A /* AllListsViewController.swift */,
-				52F76CD2280C7D9A0015F72A /* Checklist.swift */,
-				5271C528280D8413009E3539 /* ListDetailViewController.swift */,
-				52AE6F8A280F349700BD149A /* DataModel.swift */,
-				52E48EC727FF5B2E00ED5015 /* Main.storyboard */,
-				52E48ECA27FF5B3000ED5015 /* Assets.xcassets */,
-				52E48ECC27FF5B3000ED5015 /* LaunchScreen.storyboard */,
 				52E48ECF27FF5B3000ED5015 /* Info.plist */,
+				52E48EC327FF5B2E00ED5015 /* SceneDelegate.swift */,
 			);
 			path = MyChecklists;
 			sourceTree = "<group>";
