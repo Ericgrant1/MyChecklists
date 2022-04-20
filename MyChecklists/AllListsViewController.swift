@@ -24,7 +24,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         navigationController?.delegate = self
         
-        let index = UserDefaults.standard.integer(forKey: "ChecklistIndex")
+        let index = dataModel.indexOfSelectedChecklist
         if index != -1 {
             let checkList = dataModel.lists[index]
             performSegue(withIdentifier: "ShowChecklist", sender: checkList)
@@ -85,9 +85,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath
     ) {
-        UserDefaults.standard.set(
-            indexPath.row,
-            forKey: "ChecklistIndex")
+        dataModel.indexOfSelectedChecklist = indexPath.row
         
         let checkList = dataModel.lists[indexPath.row]
         performSegue(
@@ -151,7 +149,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     ) {
         //Was the back button tapped?
         if viewController === self {
-            UserDefaults.standard.set(-1, forKey: "ChecklistIndex")
+            dataModel.indexOfSelectedChecklist = -1
         }
     }
 }

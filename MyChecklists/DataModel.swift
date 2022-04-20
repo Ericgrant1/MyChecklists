@@ -10,6 +10,18 @@ import Foundation
 class DataModel {
     var lists = [Checklist]()
     
+    var indexOfSelectedChecklist: Int {
+        get {
+            return UserDefaults.standard.integer(
+                forKey: "ChecklistIndex")
+        }
+        set {
+            UserDefaults.standard.set(
+                newValue,
+                forKey: "ChecklistIndex")
+        }
+    }
+    
     init() {
         loadChecklists()
         registerDefaults()
@@ -53,6 +65,7 @@ class DataModel {
         }
     }
     
+    //MARK: - Defaults
     func registerDefaults() {
         let dictionary = ["ChecklistIndex": -1]
         UserDefaults.standard.register(defaults: dictionary)
