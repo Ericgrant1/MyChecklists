@@ -19,6 +19,18 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
                            forCellReuseIdentifier: cellIdentifier)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        navigationController?.delegate = self
+        
+        let index = UserDefaults.standard.integer(forKey: "ChecklistIndex")
+        if index != -1 {
+            let checkList = dataModel.lists[index]
+            performSegue(withIdentifier: "ShowChecklist", sender: checkList)
+        }
+    }
+    
     //MARK: - Navigation
     override func prepare(
         for segue: UIStoryboardSegue,
