@@ -72,6 +72,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         }
         var content = cell.defaultContentConfiguration()
         let checkList = dataModel.lists[indexPath.row]
+    
         content.text = checkList.name
         
         let count = checkList.countUncheckedItems()
@@ -80,6 +81,8 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         } else {
             content.secondaryText = count == 0 ? "All Done" : "\(count) Remaining"
         }
+
+        content.image = UIImage(named: checkList.iconName)
         
         cell.contentConfiguration = content
         cell.accessoryType = .detailDisclosureButton
