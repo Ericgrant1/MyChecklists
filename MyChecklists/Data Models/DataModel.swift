@@ -60,6 +60,7 @@ class DataModel {
                 lists = try decoder.decode(
                     [Checklist].self,
                     from: data)
+                sortChecklists()
             } catch {
                 print("Error decoding list array: \(error.localizedDescription)")
             }
