@@ -9,7 +9,7 @@ import UIKit
 
 class Checklist: NSObject, Codable {
     var name = ""
-    var iconName = "Appointments"
+    var iconName = "No Icon"
     var items = [CheckListItem]()
     
     init(name: String) {
