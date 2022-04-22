@@ -36,9 +36,8 @@ class IconPickerViewController: UITableViewController {
             withIdentifier: "IconCell",
             for: indexPath)
         let iconName = icons[indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        content.text = iconName
-        content.image = UIImage(named: iconName)
+        cell.textLabel!.text = iconName
+        cell.imageView!.image = UIImage(named: iconName)
         return cell
     }
 }
