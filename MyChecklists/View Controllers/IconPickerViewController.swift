@@ -35,9 +35,14 @@ class IconPickerViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "IconCell",
             for: indexPath)
+        
         let iconName = icons[indexPath.row]
-        cell.textLabel!.text = iconName
-        cell.imageView!.image = UIImage(named: iconName)
+        var content = cell.defaultContentConfiguration()
+        content.image = UIImage(named: iconName)
+        content.text = iconName
+        cell.contentConfiguration = content
+//        cell.textLabel!.text = iconName
+//        cell.imageView!.image = UIImage(named: iconName)
         return cell
     }
 }
