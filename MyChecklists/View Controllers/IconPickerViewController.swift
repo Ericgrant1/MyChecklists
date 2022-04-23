@@ -55,4 +55,11 @@ class IconPickerViewController: UITableViewController {
             delegate.IconPicker(self, didPick: iconName)
         }
     }
+    
+    override func tableView(
+        _ tableView: UITableView,
+        heightForRowAt indexPath: IndexPath
+    ) -> CGFloat {
+        return 45
+    }
 }
