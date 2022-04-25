@@ -60,6 +60,8 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             
             item.shouldRemind = shouldRemindSwitch.isOn
             item.dueData = datePicker.date
+            item.scheduleNotification()
+            
             delegate?.itemDetailViewController(self, didFinishEditing: item)
         } else {
             let item = CheckListItem(text: "", checked: false)
@@ -67,6 +69,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             
             item.shouldRemind = shouldRemindSwitch.isOn
             item.dueData = datePicker.date
+            item.scheduleNotification()
             
             delegate?.itemDetailViewController(self, didFinishAdding: item)
         }

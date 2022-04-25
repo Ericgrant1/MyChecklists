@@ -20,4 +20,10 @@ class CheckListItem: NSObject, Codable {
         super.init()
         itemID = DataModel.nextChecklistItemID()
     }
+    
+    func scheduleNotification() {
+        if shouldRemind && dueData > Date() {
+            print("We should schedule a notification!")
+        }
+    }
 }
