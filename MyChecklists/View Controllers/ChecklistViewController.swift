@@ -129,8 +129,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         with item: CheckListItem
     ) {
         let label = cell.viewWithTag(1000) as! UILabel
-        // label.text = item.text
-        label.text = "\(item.itemID): \(item.text)"
+        label.text = item.text
+        // label.text = "\(item.itemID): \(item.text)"
     }
     
     func configureCheckmarks(

@@ -38,6 +38,8 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             title = "Edit Item"
             textField.text = itemToEdit.text
             doneBarButton.isEnabled = true
+            shouldRemindSwitch.isOn = itemToEdit.shouldRemind
+            datePicker.date = itemToEdit.dueData
         }
     }
     
