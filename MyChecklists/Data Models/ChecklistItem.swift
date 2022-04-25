@@ -18,10 +18,6 @@ class CheckListItem: NSObject, Codable {
         self.text = text
         self.checked = checked
         super.init()
-    }
-    
-    override init() {
-        super.init()
         itemID = DataModel.nextChecklistItemID()
     }
 }
